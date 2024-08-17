@@ -1,0 +1,25 @@
+{
+  "need_query": [
+    {
+      "prvoider": "李四",
+      "need_id": "REQ-1",
+      "need_name": "用户注册流程优化",
+      "provide_time": "224-7-2",
+      "responsible": "张三",
+      "implement_depart": "开发部",
+      "provider_depart": "产品部",
+      "finish_time": "224-8-5"
+    },
+    "need_track"
+    :
+    [
+      {
+        "week": "224-8",
+        "undev_need": "1",
+        "dev_need": "4",
+        "finish_need": "15",
+        "receive_need": "2",
+        "provider_depart": "产品部, 1; UI设计部, 5; 测试部, 3; 运营部, 2"
+      }
+    ]
+    }
