@@ -62,7 +62,7 @@ public class JudgeServiceImpl implements JudgeService {
         }
         //3.进行代码状态的更改
         QuestionSubmit qusetionSubmitUpdate = new QuestionSubmit();
-        qusetionSubmitUpdate.setQuestionId(questionSubmitId);
+        qusetionSubmitUpdate.setId(questionSubmitId);
         qusetionSubmitUpdate.setStatus(QuestionSubmitStatusEnum.RUUNING.getValue());
         boolean update = questionSubmitService.updateById(qusetionSubmitUpdate);
         if (!update) {
@@ -94,11 +94,11 @@ public class JudgeServiceImpl implements JudgeService {
         judgeContext.setJudgeCaseList(judgeCaseList);
         judgeContext.setQuestionSubmit(questionSubmit);
         judgeContext.setJudgeInfo(executeCodeResponse.getJudgeInfo());
-        JudgeStrategy judgeStrategy = new DefaultJudgeStrategy();
+//        JudgeStrategy judgeStrategy = new DefaultJudgeStrategy();
         JudgeInfo judgeInfo = judgeManage.doJudge(judgeContext);
         //判题完毕修改数据库的判题结果
         qusetionSubmitUpdate = new QuestionSubmit();
-        qusetionSubmitUpdate.setQuestionId(questionSubmitId);
+        qusetionSubmitUpdate.setId(questionSubmitId);
         qusetionSubmitUpdate.setStatus(QuestionSubmitStatusEnum.SUCCEED.getValue());
         qusetionSubmitUpdate.setJudgeInfo(JSONUtil.toJsonStr(judgeInfo));
         update = questionSubmitService.updateById(qusetionSubmitUpdate);
