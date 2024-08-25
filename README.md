@@ -1,7 +1,4 @@
-# SpringBoot 项目初始模板
-
-> 作者：[程序员鱼皮](https://github.com/lisyj)
-> 仅分享于 [编程导航知识星球](https://syj.icu)
+# OJ在线判题系统
 
 基于 Java SpringBoot 的项目初始模板，整合了常用框架和主流业务的示例代码。
 
@@ -9,72 +6,92 @@
 
 [toc]
 
-## 模板特点
+## 项目简介
 
-### 主流框架 & 特性
+### 项目介绍
 
-- Spring Boot 2.7.x（贼新）
-- Spring MVC
-- MyBatis + MyBatis Plus 数据访问（开启分页）
-- Spring Boot 调试工具和项目处理器
-- Spring AOP 切面编程
-- Spring Scheduler 定时任务
-- Spring 事务注解
+基于**Vue3**+**Arco Design+SpringBoot+SpringCloud微服务**+**Docker**+**RabbitMQ**的编程题目在线评测系统（OJ）系统
 
-### 数据存储
+系统能够根据管理员预设的题目用例对用户提交的代码进行执行和测评；系统中自主实现的**代码沙箱**可作为独立服务供其他开发者调用，并实现了对代码进行微服务重构
 
-- MySQL 数据库
-- Redis 内存数据库
-- Elasticsearch 搜索引擎
-- 腾讯云 COS 对象存储
+### 页面展示
 
-### 工具类
+登录页面
 
-- Easy Excel 表格处理
-- Hutool 工具库
-- Apache Commons Lang3 工具类
-- Lombok 注解
+![image-20240825141653578](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141653578.png)
 
-### 业务特性
+主页展示
 
-- 业务代码生成器（支持自动生成 Service、Controller、数据模型代码）
-- Spring Session Redis 分布式登录
-- 全局请求响应拦截器（记录日志）
-- 全局异常处理器
-- 自定义错误码
-- 封装通用响应类
-- Swagger + Knife4j 接口文档
-- 自定义权限注解 + 全局校验
-- 全局跨域处理
-- 长整数丢失精度解决
-- 多环境配置
+![image-20240825141821824](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141821824.png)
+
+管理题目
+
+![image-20240825141846681](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141846681.png)
+
+题目提交信息
+
+![image-20240825141901576](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141901576.png)
+
+题目创建
+
+![image-20240825141926656](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141926656.png)
+
+题目浏览
+
+![image-20240825142037269](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825142037269.png)
 
 
-## 业务功能
 
-- 提供示例 SQL（用户、帖子、帖子点赞、帖子收藏表）
-- 用户登录、注册、注销、更新、检索、权限管理
-- 帖子创建、删除、编辑、更新、数据库检索、ES 灵活检索
-- 帖子点赞、取消点赞
-- 帖子收藏、取消收藏、检索已收藏帖子
-- 帖子全量同步 ES、增量同步 ES 定时任务
-- 支持微信开放平台登录
-- 支持微信公众号订阅、收发消息、设置菜单
-- 支持分业务的文件上传
+### 功能模块
 
-### 单元测试
+* 题目模块
+  * 创建题目（管理员）
+  * 删除题目（管理员）
+  * 修改题目（管理员）
+  * 搜索题目（全用户）
+  * 在线做题（支持多种语言，暂只实现java语言的判题）
+  * 提交题目代码
+  * 判题结果呈现
+* 用户模块
+  * 注册
+  * 登录
+* 判题模块
+  * 提交判题
+  * 错误处理
+  * 自主实现**代码沙箱**（安全沙箱）
+  * 开放接口（提供一个独立的新服务）
 
-- JUnit5 单元测试
-- 示例单元测试类
+## 技术选型
 
-### 架构设计
+### 前端
 
-- 合理分层
+* Vue3、Vue-CLI脚手架、Vuex状态管理
+* Arco Design 组件库
+* 前端工程化：ESLint + Prettier + TypeScript
+* 手写前端项目模板（通用布局、权限管理、状态管理、菜单生成）
+* Markdown 富文本编辑器
+* Monaco Editor 代码编辑器
+* OpenAPI前端代码生成
+
+### 后端
+
+* Java SpringCloud + SpringCloudAlibaba微服务
+* SpringBoot
+* Java进程控制
+* java安全管理器
+* Docker代码沙箱实现
+* 虚拟机+远程开发
+* Mysql数据库、MyBatis-plus以及MybatisX自动代码生成
+* Redis分布式Session
+* RabbitMQ消息队列
+* 多种设计模式
+  * 策略模式
+  * 工厂模式
+  * 代理模式
+  * 模板方法模式
 
 
 ## 快速上手
-
-> 所有需要修改的地方鱼皮都标记了 `todo`，便于大家找到修改的位置~
 
 ### MySQL 数据库
 
@@ -132,50 +149,36 @@ spring:
 @SpringBootApplication
 ```
 
-### Elasticsearch 搜索引擎
+### 前端接口生成
 
-1）修改 `application.yml` 的 Elasticsearch 配置为你自己的：
+1）安装请求工具类axios
 
-```yml
-spring:
-  elasticsearch:
-    uris: http://localhost:9200
-    username: root
-    password: 123456
-```
-
-2）复制 `sql/post_es_mapping.json` 文件中的内容，通过调用 Elasticsearch 的接口或者 Kibana Dev Tools 来创建索引（相当于数据库建表）
+```shell
+npm install axios
 
 ```
-PUT post_v1
-{
- 参数见 sql/post_es_mapping.json 文件
+
+2)编写调用后端代码
+
+```shell
+#首先安装
+npm install openapi-typescript-codegen --save-dev
+#执行命令
+openapi --input http://localhost:8121/api/v2/api-docs --output ./generated --client axios
+```
+
+3）直接使用生成的service代码，直接调用函数发送请求即可，比如获取登录信息
+
+```tsx
+// 从远程请求获取登录信息
+const res = await UserControllerService.getLoginUserUsingGet();
+if (res.code === 0) {
+  commit("updateUser", res.data);
+} else {
+  commit("updateUser", {
+    ...state.loginUser,
+    userRole: ACCESS_ENUM.NOT_LOGIN,
+  });
 }
 ```
 
-这步不会操作的话需要补充下 Elasticsearch 的知识，或者自行百度一下~
-
-3）开启同步任务，将数据库的帖子同步到 Elasticsearch
-
-找到 job 目录下的 `FullSyncPostToEs` 和 `IncSyncPostToEs` 文件，取消掉 `@Component` 注解的注释，再次执行程序即可触发同步：
-
-```java
-// todo 取消注释开启任务
-//@Component
-```
-
-### 业务代码生成器
-
-支持自动生成 Service、Controller、数据模型代码，配合 MyBatisX 插件，可以快速开发增删改查等实用基础功能。
-
-找到 `generate.CodeGenerator` 类，修改生成参数和生成路径，并且支持注释掉不需要的生成逻辑，然后运行即可。
-
-```
-// 指定生成参数
-String packageName = "com.syj.syjoj";
-String dataName = "用户评论";
-String dataKey = "userComment";
-String upperDataKey = "UserComment";
-```
-
-生成代码后，可以移动到实际项目中，并且按照 `// todo` 注释的提示来针对自己的业务需求进行修改。
