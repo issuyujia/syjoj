@@ -1,9 +1,5 @@
 # OJ在线判题系统
 
-基于 Java SpringBoot 的项目初始模板，整合了常用框架和主流业务的示例代码。
-
-只需 1 分钟即可完成内容网站的后端！！！大家还可以在此基础上快速开发自己的项目。
-
 [toc]
 
 ## 项目简介
@@ -13,6 +9,12 @@
 基于**Vue3**+**Arco Design+SpringBoot+SpringCloud微服务**+**Docker**+**RabbitMQ**的编程题目在线评测系统（OJ）系统
 
 系统能够根据管理员预设的题目用例对用户提交的代码进行执行和测评；系统中自主实现的**代码沙箱**可作为独立服务供其他开发者调用，并实现了对代码进行微服务重构
+
+#### 核心业务流程
+
+![image-20240825143232820](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825143232820.png)
+
+![image-20240825143312171](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825143312171.png)
 
 ### 页面展示
 
