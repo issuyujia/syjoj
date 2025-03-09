@@ -12,35 +12,35 @@
 
 #### 核心业务流程
 
-![image-20240825143232820](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825143232820.png)
+![image-20240825143232820](doc/img.png)
 
-![image-20240825143312171](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825143312171.png)
+![image-20240825143312171](doc/img_1.png)
 
 ### 页面展示
 
 登录页面
 
-![image-20240825141653578](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141653578.png)
+![image-20240825141653578](doc/img_2.png)
 
 主页展示
 
-![image-20240825141821824](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141821824.png)
+![image-20240825141821824](doc/img_3.png)
 
 管理题目
 
-![image-20240825141846681](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141846681.png)
+![image-20240825141846681](doc/img_4.png)
 
 题目提交信息
 
-![image-20240825141901576](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141901576.png)
+![image-20240825141901576](doc/img_5.png)
 
 题目创建
 
-![image-20240825141926656](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825141926656.png)
+![image-20240825141926656](doc/img_6.png)
 
 题目浏览
 
-![image-20240825142037269](C:\Users\山兮\AppData\Roaming\Typora\typora-user-images\image-20240825142037269.png)
+![image-20240825142037269](doc/img_7.png)
 
 
 
